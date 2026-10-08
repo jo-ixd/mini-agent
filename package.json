@@ -1,0 +1,11 @@
+{
+  "name": "mini-agent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node agent.ts"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}
