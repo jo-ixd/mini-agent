@@ -1,22 +1,15 @@
 # mini-agent
 
-A tiny terminal coding agent using OpenRouter's `z-ai/glm-5.3-flash`.
-One TypeScript source file, under 100 lines, no packages, native Node TypeScript,
-and raw `fetch`. Requires Node **22.18+** (Node 24 recommended) and Bash.
+A tiny terminal coding agent using OpenRouter's `z-ai/glm-5.3-flash`. Requires Node **22.18+** (Node 24 recommended) and Bash.
 
 ## Run
 
 ```bash
-export OPENROUTER_API_KEY='your-key'
-node agent.ts
+cp .env.example .env 
+# Fill in key and run
+npm start
 # Or give it one task and exit:
-node agent.ts 'Inspect this project, fix the failing test, and verify the fix.'
-```
-
-Alternatively, copy `.env.example` to `.env`, fill in your key, and run:
-
-```bash
-node agent.ts
+node src/agent.ts 'Inspect this project, fix the failing test, and verify the fix.'
 ```
 
 Node's built-in `process.loadEnvFile()` automatically loads `.env` from the
@@ -51,13 +44,3 @@ can incur charges. Never commit API keys.
 For local mock testing, `OPENROUTER_BASE_URL` can override the API base URL;
 normally leave it unset so requests go to `https://openrouter.ai/api/v1`.
 
-## Verification
-
-Verified on Node 24.19.0 using a local mock OpenRouter server: all four tools,
-multi-step tool use, tool-error recovery, reasoning-message preservation, output
-limits, HTTP/provider errors, missing credentials, automatic `.env` loading,
-exported-variable precedence, and interactive input/exit.
-
-Also verified against the real GLM 5.3 Flash model: it created, read, edited, and
-tested a small JavaScript module using all four tools. The resulting code was
-independently tested locally. The API key was loaded from `.env`, not exported.
