@@ -16,10 +16,14 @@ node agent.ts 'Inspect this project, fix the failing test, and verify the fix.'
 Alternatively, copy `.env.example` to `.env`, fill in your key, and run:
 
 ```bash
-node --env-file=.env agent.ts
+node agent.ts
 ```
 
-No install or build step. `npm start` also works with an exported key.
+Node's built-in `process.loadEnvFile()` automatically loads `.env` from the
+current working directory. Existing environment variables take precedence;
+a missing `.env` is fine if you've exported your key.
+
+No install or build step. `npm start` also works with `.env` or an exported key.
 Type `/exit` to quit; conversation history lives in memory for that session.
 
 To work on another project, change into that project and run this file by its
@@ -51,6 +55,9 @@ normally leave it unset so requests go to `https://openrouter.ai/api/v1`.
 
 Verified on Node 24.19.0 using a local mock OpenRouter server: all four tools,
 multi-step tool use, tool-error recovery, reasoning-message preservation, output
-limits, HTTP/provider errors, missing credentials, and interactive input/exit.
-The real model ID was checked against OpenRouter's model catalog. No live model
-request was made; an API key is needed to verify provider behavior end to end.
+limits, HTTP/provider errors, missing credentials, automatic `.env` loading,
+exported-variable precedence, and interactive input/exit.
+
+Also verified against the real GLM 5.3 Flash model: it created, read, edited, and
+tested a small JavaScript module using all four tools. The resulting code was
+independently tested locally. The API key was loaded from `.env`, not exported.
