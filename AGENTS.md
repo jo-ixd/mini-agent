@@ -4,4 +4,4 @@ mini-agent is a tiny terminal coding agent that runs on OpenRouter's `z-ai/glm-5
 
 ## Commit rule
 
-Write conventional commits in plain English that describe what was done to the code, not what you did. Describe the change itself, not the process — "Refactor agent.ts: strict types, clearer structure, spacing", never "I decided to refactor" or "Made some changes".
+Write conventional commits in plain English that describe what was done to the code, not what you did. Describe the change itself, not the process — "refactor: tighten agent.ts types and clarify structure", never "I decided to refactor" or "Made some changes".
