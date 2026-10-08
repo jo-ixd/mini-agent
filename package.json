@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node agent.ts"
+    "start": "node src/agent.ts"
   },
   "engines": {
     "node": ">=22.18.0"
