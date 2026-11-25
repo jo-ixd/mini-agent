@@ -1,6 +1,6 @@
 # mini-agent
 
-A tiny terminal coding agent using `kimi-k2.6` via OpenCode's OpenAI-compatible
+A tiny terminal coding agent using `kimi-k2.7-code` via OpenCode Go's OpenAI-compatible
 inference endpoint. Requires Node **22.18+** (Node 24 recommended) and Bash.
 
 ## Run

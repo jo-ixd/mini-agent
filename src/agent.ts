@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createInterface } from 'node:readline/promises';
+import { randomUUID } from 'node:crypto';
 import OpenAI from 'openai';
 import { err, ok, Result, ResultAsync } from 'neverthrow';
 
@@ -15,11 +16,13 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const model = 'kimi-k2.6';
+const model = 'kimi-k2.7-code';
 const client = new OpenAI({
-  baseURL: process.env.OPENCODE_BASE_URL ?? 'https://opencode.ai/inference/openai/v1',
+  baseURL: process.env.OPENCODE_BASE_URL ?? 'https://opencode.ai/inference/go/openai/v1',
   apiKey,
   timeout: 120_000,
+  // The Go endpoint routes requests with the same session ID to the same upstream server.
+  defaultHeaders: { 'x-opencode-session': `mini-agent-${randomUUID()}` },
 });
 
 const string = { type: 'string' } as const;
