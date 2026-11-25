@@ -5,7 +5,11 @@
   "scripts": {
     "start": "node src/agent.ts"
   },
-  "engines": {
-    "node": ">=22.18.0"
+  "dependencies": {
+    "neverthrow": "^8.2.0",
+    "openai": "^7.43.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5"
   }
 }

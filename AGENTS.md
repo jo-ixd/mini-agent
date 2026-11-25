@@ -1,6 +1,10 @@
 # AGENTS.md
 
-mini-agent is a tiny terminal coding agent that runs on OpenRouter's `z-ai/glm-5.3-flash` with four tools (read, edit, write, bash) and no dependencies beyond Node 22.18+. It takes a one-shot task as a CLI argument or runs an interactive REPL, calling tools in a loop until the task is done.
+mini-agent is a tiny terminal coding agent that runs on `kimi-k2.7-code` through
+OpenCode Go's OpenAI-compatible inference API, with four tools (read, edit, write,
+bash) and one dependency, the `openai` package, beyond Node 22.18+. It takes a
+one-shot task as a CLI argument or runs an interactive REPL, calling tools in a
+loop until the task is done.
 
 ## Commit rule
 
